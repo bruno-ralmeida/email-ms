@@ -3,6 +3,7 @@ package br.com.xxnbr.email.models;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,6 +19,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 @Table(name = "TB_EMAIL")
 public class EmailModel {
 
@@ -36,7 +38,7 @@ public class EmailModel {
   @Column(columnDefinition = "TEXT")
   private String text;
 
-  private LocalDateTime senDateTime;
+  private LocalDateTime sendDateTime;
 
   private StatusEmail status;
 
