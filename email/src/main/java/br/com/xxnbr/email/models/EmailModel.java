@@ -11,6 +11,7 @@ import javax.persistence.Table;
 
 import br.com.xxnbr.email.enums.StatusEmail;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,6 +22,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "TB_EMAIL")
+@Builder
 public class EmailModel {
 
   @Id
