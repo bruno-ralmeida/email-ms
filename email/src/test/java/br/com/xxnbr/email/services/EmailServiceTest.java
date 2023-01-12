@@ -4,24 +4,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-import org.junit.jupiter.api.BeforeEach;
+import java.util.UUID;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.mail.MailException;
 
-import com.amazonaws.regions.Regions;
-import com.amazonaws.services.simpleemail.AmazonSimpleEmailService;
-import com.amazonaws.services.simpleemail.AmazonSimpleEmailServiceClientBuilder;
 import com.amazonaws.services.simpleemail.model.MessageRejectedException;
-import com.amazonaws.services.simpleemail.model.SendEmailRequest;
-import com.amazonaws.services.simpleemail.model.SendEmailResult;
 
 import br.com.xxnbr.email.enums.StatusEmail;
 import br.com.xxnbr.email.models.EmailModel;
@@ -43,7 +34,7 @@ public class EmailServiceTest {
   public void deveEnviarEmailERetornarStatusSent() {
 
     final var email = EmailModel.builder()
-        .id(1L)
+        .uuid(UUID.randomUUID())
         .emailFrom("teste@teste.com")
         .emailTo("test@To.com")
         .ownerRef("BRA")
@@ -60,10 +51,10 @@ public class EmailServiceTest {
   }
 
   @Test
-  public void deveLancarExececaoAoEnviarEmail() {
+  public void deveLancarExececaoAoEnviarEmail() throws Exception {
 
     final var email = EmailModel.builder()
-        .id(1L)
+        .uuid(UUID.randomUUID())
         .emailFrom("teste@teste.com")
         .emailTo("test@To.com")
         .ownerRef("BRA")

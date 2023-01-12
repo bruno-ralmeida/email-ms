@@ -29,8 +29,7 @@ public class AmazonSesClientHelper {
   @Value("${aws.secret_key}")
   private String secretKey;
 
-  @Bean
-  public SendEmailResult sendEmail(EmailModel email) {
+  public SendEmailResult sendEmail(EmailModel email) throws Exception {
     SendEmailRequest request = new SendEmailRequest()
         .withDestination(
             new Destination().withToAddresses(email.getEmailTo()))

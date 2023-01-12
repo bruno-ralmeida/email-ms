@@ -1,6 +1,7 @@
 package br.com.xxnbr.email.models;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
 
 import br.com.xxnbr.email.enums.StatusEmail;
 import lombok.AllArgsConstructor;
@@ -20,14 +23,14 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "TB_EMAIL")
-@Builder
 public class EmailModel {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+  private UUID uuid;
 
   private String ownerRef;
 
